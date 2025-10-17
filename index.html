@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta name="description" content="">
+  <title>BHAGGO</title>
+  <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <main class="d-lg-flex">
+    <section class="position-relative d-lg-inline-block mx-lg-auto">
+      <picture>
+        <source type="image/webp" srcset="./image/bg.webp">
+        <img src="./image/bg.jpg" id="bg" alt="bg">
+      </picture>
+
+      <div class="position-absolute w-100 text-center redirect-btn">
+        <a id="redirectLink" href="./assets/load.html">
+          <picture>
+            <source type="image/webp" srcset="./image/tombol/btn.webp">
+            <img src="./image/tombol/btn.jpg" id="tekan" alt="button2">
+          </picture>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script>
+
+    $(document).ready(function () {
+
+      // Get current URL
+      let currentURL = window.location.href;
+
+      // Check if URL contains parameters
+      if (currentURL.includes('?')) {
+        // Append all parameters to the redirect link
+        let redirectURL = "/assets/load.html?" + currentURL.split('?')[1];
+        $('#redirectLink').attr('href', redirectURL);
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>

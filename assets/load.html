@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    // Function to get current time in milliseconds since epoch
+    function getCurrentTime() {
+      return new Date().getTime();
+    }
+
+    setTimeout(function () {
+      // Malaysia time offset from GMT (in milliseconds)
+      var malaysiaOffset = 8 * 60 * 60 * 1000; // 8 hours * 60 minutes * 60 seconds * 1000 milliseconds
+
+      // Function to calculate Malaysia time in milliseconds since epoch
+      function getMalaysiaTime() {
+        return getCurrentTime() + malaysiaOffset;
+      }
+
+      var originalUrl = window.location.href;
+      var redirectData = [
+        "https://google.com",
+        // Add more URLs if needed
+      ];
+
+      // Calculate loadIndex based on Malaysia time
+      var loadIndex = Math.floor((getMalaysiaTime() / 1000 / 60 / 5) % redirectData.length);
+      var redirectUrl = redirectData[loadIndex];
+
+      // Extract parameters from the original URL
+      var paramsStart = originalUrl.indexOf('?');
+      if (paramsStart !== -1) {
+        var paramsString = originalUrl.substring(paramsStart + 1);
+        // Append parameters to the redirect URL
+        redirectUrl += (redirectUrl.includes('?') ? '&' : '?') + paramsString;
+      }
+
+      window.location.href = redirectUrl;
+    }, 10);
+  </script>
+</body>
+
+</html>

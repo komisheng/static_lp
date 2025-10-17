@@ -1,0 +1,42 @@
+/*-------------------------------------------Background Image---------------------------------------------*/
+#bg {
+    width: 100%;
+    height: auto;
+}
+
+
+/*-------------------------------------------Redirect Button---------------------------------------------*/
+.redirect-btn {
+    top: 44%;
+}
+
+.redirect-btn img {
+    width:60%;
+    animation: pulse 0.9s  infinite linear;
+}
+
+
+/*-------------------------------------------Keyframe Animation---------------------------------------------*/
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+
+
+/*-------------------------------------------Multi Device Screen Size---------------------------------------------*/
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #bg {
+        height: 100vh;
+    }
+}
