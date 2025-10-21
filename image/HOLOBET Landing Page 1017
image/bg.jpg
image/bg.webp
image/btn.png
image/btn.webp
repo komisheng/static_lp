@@ -1,0 +1,1 @@
+{{ Buffer.from(Object.values($binary)[0].data,'base64').toString('base64') }}
